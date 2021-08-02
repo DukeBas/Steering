@@ -9,7 +9,7 @@ class Line {
   constructor(
     start: p5.Vector,
     end: p5.Vector,
-    life = 200, // amount of frames a line is drawn
+    life = 250, // amount of frames a line is drawn
   ) {
     this.start = start;
     this.end = end;
@@ -66,7 +66,7 @@ export class Tracer {
     // add new lines
     for (let i = 0; i < this.vehicles.length; i++) {
       const next = i + 1 >= this.vehicles.length ? 0 : i + 1 // index for the end part of the line, might need to loop
-      this.lines.push(new Line(this.vehicles[i].pos.copy(), this.vehicles[next].pos.copy()));
+      this.lines.push(new Line(this.vehicles[i].pos.copy(), this.vehicles[next].pos.copy(), window.settings.lineLifetime));
     }
 
 

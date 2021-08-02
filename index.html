@@ -11,21 +11,23 @@
 </head>
 
 <!-- <body onload="openSidebar()"> -->
+
 <body>
   <div id="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
-    <button onclick="toggleFadingLines();" id="reset-button">Toggle fading lines</button> <br>
-    <select name="selector" onchange="alert('Changed!')">
+    <button onclick="toggleFadingLines();" id="reset-button">Toggle fading lines</button>
+    <!-- <select name="selector" onchange="alert('Changed!')">
       <option value="a">a</option>
       <option value="b">b</option>
-    </select>
+    </select> -->
     <br><br><br>
     <div class="sliderBox">
-      <span>Slider value: </span> <span id="first-slider-value">DEFAULT VALUE</span><br>
-      <input type="range" min="1" max="100" value="50" class="slider" id="first-slider" oninput="document.getElementById('first-slider-value').innerHTML = this.value" onchange="alert(this.value)">
+      <span>Line lifetime: </span> <span id="lifetime-value">250</span><br>
+      <input type="range" min="1" max="500" value="250" class="slider" id="lifetime-slider"
+        oninput="document.getElementById('lifetime-value').innerHTML = this.value" onchange="window.settings.lineLifetime = this.value">
     </div>
     <br><br><br>
-    <button onclick="saveCanvas('canvas', 'png');" id="download-button">Download canvas</button> 
+    <button onclick="saveCanvas('canvas', 'png');" id="download-button">Download canvas</button>
     <a href="https://github.com/DukeBas/Steering">
       <img src="GitHub-light.png" alt="Github link" id="GitHub">
     </a>

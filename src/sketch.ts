@@ -12,11 +12,11 @@ const sketch = (p: p5) => {
     p.frameRate(60);  // target framerate
 
     tracer = new Tracer(p, 3);
-  };
+  }
 
   p.windowResized = () => {
     p.resizeCanvas(p.windowWidth, p.windowHeight);
-  };
+  }
 
   p.draw = () => {
     p.background(0);
