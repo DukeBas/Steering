@@ -22,6 +22,12 @@ const settings = {
         r: 255,
         g: 0,
         b: 0,
-    }
+    },
+    VehicleOptions : {
+        maxForce: 0.25,
+        maxSpeed: 9,
+        distanceForMaxSpeed: 100,
+        distanceToTargetToReach: 50,
+      }
 }
 window.settings = settings;
