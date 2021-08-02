@@ -11,6 +11,7 @@ declare global {
         saveCanvas: Function,
         windowResized: Function,
         settings: typeof settings,
+        toggleFadingLines: Function,
     }
 }
 
@@ -31,3 +32,9 @@ const settings = {
       }
 }
 window.settings = settings;
+
+// Fading lines toggle button
+function toggleFadingLines() {
+    settings.fadingLines = !settings.fadingLines;
+}
+window.toggleFadingLines = toggleFadingLines;
