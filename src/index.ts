@@ -10,5 +10,13 @@ declare global {
         closeSidebar: Function,
         saveCanvas: Function,
         windowResized: Function,
+        settings: typeof settings,
     }
 }
+
+// global settings
+const settings = {
+    fadingLines: true,  // whether lines fade over time
+    lineLifetime: 255,  // how many frames lines are drawn for
+}
+window.settings = settings;
