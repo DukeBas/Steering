@@ -27,8 +27,8 @@ const settings = {
     b: 0,
   },
   VehicleOptions: {
-    maxForce: 0.25,
-    maxSpeed: 9,
+    maxForce: parseInt((document.getElementById('max-force-slider') as HTMLInputElement).value) / 100,
+    maxSpeed: parseInt((document.getElementById('max-speed-slider') as HTMLInputElement).value),
     distanceForMaxSpeed: 100,
     distanceToTargetToReach: 50,
   }
@@ -55,6 +55,8 @@ window.changeColor = changeColor;
 // updating based on previous values
 function initialLoad() {
   document.getElementById('lifetime-value').innerHTML = (document.getElementById('lifetime-slider') as HTMLInputElement).value
+  document.getElementById('max-force-value').innerHTML = (document.getElementById('max-force-slider') as HTMLInputElement).value
+  document.getElementById('max-speed-value').innerHTML = (document.getElementById('max-speed-slider') as HTMLInputElement).value
   changeColor((document.getElementById('color-picker') as HTMLInputElement).value);
 }
 window.initialLoad = initialLoad;

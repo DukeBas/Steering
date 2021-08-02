@@ -51,6 +51,7 @@ select {
     background-color: $sidebarButtonBackgroundColor;
     width: 80px;
     height: 35px;
+    cursor: pointer;
 
     &:hover {
         background-color: $sidebarHoverColor;
