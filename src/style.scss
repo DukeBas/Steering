@@ -1,8 +1,10 @@
 $sidebarButtonTextColor: #333;
 $sidebarButtonBackgroundColor: antiquewhite;
+$sidebarHoverColor: rgb(216, 201, 184);
+$sliderThumbColor: #999;
 
 * {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 
 button {
@@ -19,6 +21,10 @@ button {
     border-radius: 5px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
+
+    &:hover {
+        background-color: $sidebarHoverColor;
+    }
 }
 
 select {
@@ -35,6 +41,43 @@ select {
     border-radius: 5px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
+
+    // &:hover{
+    //     background-color: $sidebarHoverColor;
+    // }
+}
+
+.slider {
+    -webkit-appearance: none;
+    height: 20px;
+    background: $sidebarButtonBackgroundColor;
+    outline: none;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        background: $sliderThumbColor;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $sidebarHoverColor;
+        }
+    }
+
+    &::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        background: $sliderThumbColor;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $sidebarHoverColor;
+        }
+    }
 }
 
 #sidebar {
@@ -50,27 +93,28 @@ select {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-}
 
-#sidebar .closebtn {
-    position: absolute;
-    color: red;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    text-decoration: none;
+    .closebtn {
+        position: absolute;
+        color: red;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        text-decoration: none;
+    }
 }
 
 #openSide {
+    // markup for open sidebar button
     font-size: 24px;
-    cursor: pointer; 
+    cursor: pointer;
     position: absolute;
     top: 20;
     left: 20;
     height: 40px;
-    line-height: 40px;  
-    width: 40px;  
+    line-height: 40px;
+    width: 40px;
     font-weight: bold;
     border-radius: 50%;
     background-color: $sidebarButtonTextColor;
