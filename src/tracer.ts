@@ -18,11 +18,18 @@ class Line {
 
   draw(p: p5) {
     if (window.settings.fadingLines) {
-      p.stroke(p.map(this.life, 0, window.settings.lineLifetime, 0, 255), 0, 0);
+      p.stroke(
+        p.map(this.life, 0, window.settings.lineLifetime, 0, window.settings.color.r),
+        p.map(this.life, 0, window.settings.lineLifetime, 0, window.settings.color.g),
+        p.map(this.life, 0, window.settings.lineLifetime, 0, window.settings.color.b),);
     } else {
-      p.stroke(255, 0, 0);
+      p.stroke(
+        window.settings.color.r,
+        window.settings.color.g,
+        window.settings.color.b
+      );
     }
-    
+
     p.line(
       this.start.x,
       this.start.y,
@@ -57,18 +64,18 @@ export class Tracer {
   // draw lines between the vehicles to the screen
   draw() {
     // add new lines
-      for (let i = 0; i < this.vehicles.length; i++) {
-        const next = i + 1 >= this.vehicles.length ? 0 : i + 1 // index for the end part of the line, might need to loop
-        this.lines.push(new Line(this.vehicles[i].pos.copy(), this.vehicles[next].pos.copy()));
-      }
+    for (let i = 0; i < this.vehicles.length; i++) {
+      const next = i + 1 >= this.vehicles.length ? 0 : i + 1 // index for the end part of the line, might need to loop
+      this.lines.push(new Line(this.vehicles[i].pos.copy(), this.vehicles[next].pos.copy()));
+    }
 
 
     // draw the lines
     this.p.push();
     this.p.strokeWeight(0.5);
-    this.lines.forEach((l,i) => {
+    this.lines.forEach((l, i) => {
       l.draw(this.p);
-      if (!l.valid){
+      if (!l.valid) {
         this.lines.splice(i, 1);
       }
     });
