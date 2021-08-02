@@ -47,6 +47,16 @@ select {
     // }
 }
 
+.color-picker {
+    background-color: $sidebarButtonBackgroundColor;
+    width: 80px;
+    height: 35px;
+
+    &:hover {
+        background-color: $sidebarHoverColor;
+    }
+}
+
 .slider {
     -webkit-appearance: none;
     height: 20px;
